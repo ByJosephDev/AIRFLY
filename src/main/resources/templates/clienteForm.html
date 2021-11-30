@@ -31,9 +31,9 @@
 						<div class="form-group">
 							<label for="sexo">Sexo</label>
 							<select name="sexo" class="form-control" required>
-							  <option selected="true" disabled="disabled">Escojer sexo</option> 
-							  <option value="F" th:field="*{sexo}">Femenino</option>
-							  <option value="M" th:field="*{sexo}">Masculino</option>
+							    <option value="" disabled="disabled" selected>Seleccione un sexo</option>
+							   	<option value="F" th:field="*{sexo}">Femenino</option>
+							  	<option value="M" th:field="*{sexo}">Masculino</option>
 							</select>
 						</div>
 						<input type="submit" th:value="${btn}" class="btn btn-primary">
@@ -44,3 +44,4 @@
 	</div>
 </div>
 </body>
+</html>

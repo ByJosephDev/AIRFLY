@@ -14,9 +14,9 @@ public class Viaje {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String lugarPartida;
+	private String lugar_partida;
 	
-	private String lugarDestino;
+	private String lugar_destino;
 	
 	private String hora;
 	
@@ -33,20 +33,20 @@ public class Viaje {
 		this.id = id;
 	}
 
-	public String getLugarPartida() {
-		return lugarPartida;
+	public String getLugar_partida() {
+		return lugar_partida;
 	}
 
-	public void setLugarPartida(String lugarPartida) {
-		this.lugarPartida = lugarPartida;
+	public void setLugar_partida(String lugar_partida) {
+		this.lugar_partida = lugar_partida;
 	}
 
-	public String getLugarDestino() {
-		return lugarDestino;
+	public String getLugar_destino() {
+		return lugar_destino;
 	}
 
-	public void setLugarDestino(String lugarDestino) {
-		this.lugarDestino = lugarDestino;
+	public void setLugar_destino(String lugar_destino) {
+		this.lugar_destino = lugar_destino;
 	}
 
 	public String getHora() {

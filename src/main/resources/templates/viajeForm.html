@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head  th:replace="/layout/layout :: header" >
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<nav th:replace="/layout/layout :: navegacion"></nav>
+			<div class="card mt-3">
+				<div class="card-header" ></div>
+				<div class="card-body">
+					<h4 th:if="ERROR!=null" th:text="${ERROR}" style="color:red"></h4>
+					<form th:action="@{/viajes/insertar}" th:object="${viaje}" method="POST">
+						<div class="form-group">
+							<label for="lugar_partida">Lugar de partida</label> 
+							<input type="text" class="form-control" th:field="*{lugar_partida}" name="lugar_partida" required>
+						</div>
+						<div class="form-group">
+							<label for="lugar_destino">Lugar de destino</label>
+							<input type="text" class="form-control" th:field="*{lugar_destino}" name="lugar_destino" required>
+						</div>
+						<div class="form-group">
+							<label for="hora">Hora</label>
+							<input id="time" type="time" class="form-control" th:field="*{hora}" name="hora" required>
+						</div>
+						<div class="form-group">
+							<label for="fecha">Fecha</label>
+							<input id="date" type="date" class="form-control" th:field="*{fecha}" name="fecha" required>
+						</div>
+						<div class="form-group">
+							<label for="precio">Precio</label>
+							<input class="form-control" type="number" placeholder="0.00" step="0.01" th:field="*{precio}" name="precio" required>
+						</div>
+						<input type="submit" th:value="${btn}" class="btn btn-primary">
+					</form>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
+</body>
+</html>

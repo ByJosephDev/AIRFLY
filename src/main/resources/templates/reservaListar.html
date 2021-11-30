@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: header">
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<nav th:replace="/layout/layout :: navegacion"></nav>
+			<div class="card mt-5">
+				<div class="card-header"></div>
+				<div class="card-body">
+				<a class="btn btn-primary" href="/reservas/formulario">Registrar reserva</a>
+						<table class="table mt-3">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">ID</th>
+									<th scope="col">CLIENTE</th>
+									<th scope="col">VIAJE</th>
+									<th scope="col">ASIENTO</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="reserva : ${reservas}">
+									<th scope="row" th:text="${reserva.id}"></th>
+									<td th:text="${reserva.id_cliente}"></td>
+									<td th:text="${reserva.id_viaje}"></td>
+									<td th:text="${reserva.asiento}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+			</div>
+		</div>		
+	</div>
+</div>
+</body>
+</html>

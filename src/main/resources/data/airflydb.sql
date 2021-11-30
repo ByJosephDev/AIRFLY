@@ -13,8 +13,8 @@ sexo varchar(70)
 
 create table viaje (
 id int primary key auto_increment,	
-lugarPartida varchar(70),
-lugarDestino varchar(70),
+lugar_partida varchar(70),
+lugar_destino varchar(70),
 hora time,
 fecha date,
 precio decimal(6,2)
@@ -43,3 +43,5 @@ insert into reserva values (null,2,1,"A1");
 select * from cliente;
 select * from viaje;
 select * from reserva;
+
+drop database airfly;

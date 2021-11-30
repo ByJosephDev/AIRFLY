@@ -24,7 +24,7 @@ public class ClienteControlador {
 	
 	@Autowired
 	@Qualifier("cliente")
-	ClienteServicio clienteservicio;
+	private ClienteServicio clienteservicio;
 
 	//mostrar clientes
 	@RequestMapping(path = "/listar")
@@ -49,7 +49,7 @@ public class ClienteControlador {
 	}
 	
 	//actualizar cliente
-	@RequestMapping("/formulario/{id}")
+	@RequestMapping(path = "/formulario/{id}")
 	public String actualizar(@PathVariable("id") int id, Model model) {
 			
 		model.addAttribute("cliente", clienteservicio.buscar(id));
@@ -79,7 +79,7 @@ public class ClienteControlador {
 	}
 	
 	//eliminar cliente
-	@RequestMapping("/eliminar/{id}")
+	@RequestMapping(path = "/eliminar/{id}")
 	public String eliminar(@PathVariable("id") int id) {
 		
 		clienteservicio.eliminar(id);
