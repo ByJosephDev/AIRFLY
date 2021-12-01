@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head  th:replace="/layout/layout :: header" >
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<nav th:replace="/layout/layout :: navegacion"></nav>
+			<div class="card">
+				<div class="card-header" ></div>
+				<div class="card-body">
+				<h3 th:if="ERROR!=null" th:text="${ERROR}" style="color:red"></h3>
+					<form th:action="@{/reservas/insertar}" th:object="${reserva}" method="POST">
+						<div class="form-group">
+							<label for="id">Cliente</label> 
+							<select name="id_cliente" th:field="*{id_cliente}" class="form-control" required>
+		                         <option value=0 disabled="disabled" selected>Seleccionar persona</option>
+		                         <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.id} +' '+ ${cliente.apellido} +' '+ ${cliente.nombre} + ' ' + ${cliente.documento}"/>
+		                  	</select>
+						</div>
+						<div class="form-group">
+							<label for="id">Viaje</label> 
+							<select name="id_viaje" th:field="*{id_viaje}" class="form-control" required>
+		                         <option value=0 disabled="disabled" selected>Seleccionar viaje</option>
+		                         <option  th:each="viaje : ${viajes}" th:value="${viaje.id} " th:text="${viaje.lugar_partida} +' '+ ${viaje.lugar_destino} + ' ' + ${viaje.hora} + ' ' + ${viaje.fecha} + ' ' + ${viaje.precio} "/>
+		                  	</select>
+						</div>
+						<div class="form-group">
+							<label for="cantidad">Asiento</label>
+							<input type="text" class="form-control" th:field="*{asiento}" name="asiento">
+						</div>
+						<input type="submit" th:value="${btn}" class="btn btn-primary">
+					</form>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
+</body>
+</html>

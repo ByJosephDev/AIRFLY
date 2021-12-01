@@ -22,8 +22,8 @@ precio decimal(6,2)
 
 create table reserva(
 id int primary key auto_increment,	
-id_cliente int ,
-id_viaje int ,
+id_cliente varchar(10),
+id_viaje varchar(10),
 asiento varchar(10),
 CONSTRAINT fk_id_cliente FOREIGN KEY (id_cliente)
     REFERENCES cliente(id),
@@ -45,3 +45,5 @@ select * from viaje;
 select * from reserva;
 
 drop database airfly;
+
+select r.id, c.id as id_cliente, c.nombre, c.apellido, c.documento, v.id as id_viaje, v.lugar_partida, v.lugar_destino, r.asiento from reserva r inner join cliente c inner join viaje v; 

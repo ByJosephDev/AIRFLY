@@ -22,6 +22,43 @@ public class ReservaServicio {
 		
 	}
 	
+	//buscar reserva
+	public Reserva buscar(int id) {
+		
+		return reservarepo.findById(id);
+		
+	}
 	
+	//guardar reserva
+	public boolean guardar(Reserva reserva) {
+		
+		try {
+			
+			reservarepo.save(reserva);
+			return true;
+			
+		} catch (Exception e) {
+			
+			return false;
+			
+		}
+		
+	}
+	
+	//eliminar reserva
+	public boolean eliminar(int id) {
+		
+		try {
+			
+			reservarepo.delete(reservarepo.findById(id));
+			return true;
+			
+		} catch (Exception e) {
+			
+			return false;
+			
+		}
+		
+	}
 
 }
